@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'ekkerartem'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.2.0')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.2.0')
+    testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+
+    compile group: 'com.google.guava', name: 'guava', version: '14.0'
+    compile 'org.slf4j:slf4j-nop:1.7.14'
+}
+
+test {
+    useJUnitPlatform()
+}
