@@ -18,6 +18,7 @@ dependencies {
 
     compile group: 'com.google.guava', name: 'guava', version: '14.0'
     compile 'org.slf4j:slf4j-nop:1.7.14'
+
 }
 
 test {

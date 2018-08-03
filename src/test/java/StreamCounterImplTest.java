@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StreamCounterImplTest {
-    private StreamCounter counter;
+    private StreamCounterImpl counter;
+
 
     @BeforeEach
     void init() {
@@ -12,35 +13,49 @@ class StreamCounterImplTest {
     }
 
     /**
-     * Testing the addition in expression.
+     * Testing the arithmetical operations together.
+     */
+    @Test
+    void calculateAll() {
+        assertEquals(13, counter.calculate("1+8*2-18/4"));
+
+    }
+
+    /**
+     * Testing the addition.
      */
     @Test
     void calculateAddition() {
-        assertEquals(4, counter.calculate("2+2"));
+        assertEquals(16, counter.calculate("5+11"));
 
     }
 
     /**
-     * Testing the addition in Subtraction.
+     * Testing the addition.
      */
     @Test
-    void calculateSubtraction() {
-        assertEquals(3, counter.calculate("5-2"));
+    void calculateSubstraction() {
+        assertEquals(2, counter.calculate("5-3"));
+
     }
 
     /**
-     * Testing the addition in Multiplication.
+     * Testing the addition.
      */
     @Test
     void calculateMultiplication() {
-        assertEquals(6, counter.calculate("2*3"));
+        assertEquals(9, counter.calculate("3*3"));
+
     }
 
     /**
-     * Testing the addition in Division.
+     * Testing the addition.
      */
     @Test
-    void calculateDivision() {
-        assertEquals(6, counter.calculate("2*3"));
+    void calculateDivion() {
+        assertEquals(4, counter.calculate("16/4"));
+
     }
+
+
 }
