@@ -21,10 +21,10 @@ public class StreamCounterImpl implements StreamCounter {
     private void doOperation() {
         while (!operatorsStack.empty()) {
             Operation stackOperation = operatorsStack.peek();
-            Integer number2 = numbersStack.pop();
-            Integer number1 = numbersStack.pop();
+            Integer firtstNumber = numbersStack.pop();
+            Integer secondNumber = numbersStack.pop();
 
-            int result = stackOperation.performOperation(number1, number2);
+            int result = stackOperation.performOperation(secondNumber, firtstNumber);
 
             numbersStack.push(result);
 
@@ -75,26 +75,23 @@ public class StreamCounterImpl implements StreamCounter {
             } else if (operator != null && !operator.equals("")) {
                 getPriority(operator);
             }
-            if(lastMatchPos!=matcher.start()){
+            if (lastMatchPos != matcher.start()) {
                 throw new IllegalArgumentException();
             }
             lastMatchPos = matcher.end();
         }
         doOperation();
 
-
-        int result = numbersStack.pop();
-        if (lastMatchPos != inputExpression.length())
-            System.out.println("Invalid string!");
-
-        System.out.println("result: " + result);
-
-        return result;
+        return numbersStack.pop();
     }
 
 
-    private static Operation operationFactory(String val) {
-        switch (val) {
+    /**
+     * @param value stores the operation symbol.
+     * @return the operation that is needed to do.
+     */
+    private static Operation operationFactory(String value) {
+        switch (value) {
             case "+": {
                 return new Addition();
             }

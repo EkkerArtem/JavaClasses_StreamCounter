@@ -58,12 +58,28 @@ class StreamCounterImplTest {
     }
 
     /**
-     * Testing the illegal arguments.
+     * Testing the letters illegal arguments.
      */
     @Test
-    void calculateInvalidData() {
+    void LettersInvalidData() {
         assertThrows(IllegalArgumentException.class, ()->counter.calculate("1+dasd8*dasd2-18fewfewf/4fwefwefew"));
 
+    }
+
+    /**
+     * Testing the symbols illegal arguments.
+     */
+    @Test
+    void SymbolsInvalidData() {
+        assertThrows(IllegalArgumentException.class, ()->counter.calculate("1+&8*{}2-18[]/4#$@"));
+    }
+
+    /**
+     * Testing the spaces illegal arguments.
+     */
+    @Test
+    void SpacesInvalidData() {
+        assertThrows(IllegalArgumentException.class, ()->counter.calculate("1 + 8*2-18/"));
     }
 
 }
