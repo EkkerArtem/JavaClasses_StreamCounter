@@ -75,6 +75,9 @@ public class StreamCounterImpl implements StreamCounter {
             } else if (operator != null && !operator.equals("")) {
                 getPriority(operator);
             }
+            if(lastMatchPos!=matcher.start()){
+                throw new IllegalArgumentException();
+            }
             lastMatchPos = matcher.end();
         }
         doOperation();

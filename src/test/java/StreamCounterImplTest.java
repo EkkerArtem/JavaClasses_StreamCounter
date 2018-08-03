@@ -57,5 +57,13 @@ class StreamCounterImplTest {
 
     }
 
+    /**
+     * Testing the illegal arguments.
+     */
+    @Test
+    void calculateInvalidData() {
+        assertThrows(IllegalArgumentException.class, ()->counter.calculate("1+dasd8*dasd2-18fewfewf/4fwefwefew"));
+
+    }
 
 }
